@@ -1,0 +1,29 @@
+@import './variable';
+
+nav li:last-child a{
+    background: brown;
+} 
+
+nav li a{
+    &:hover{
+        color: $primary-hover;
+    }
+    transition: $smooth;
+    color: $primary;
+}
+
+.menu h1{
+    color: $primary;
+}
+
+.addToCart{
+    border: 2x solid black;
+    color: $secondary;
+    background-color: $grey;
+    &:hover{
+        background-color: $primary-hover;
+        color: $pure;
+    }
+}
+
+

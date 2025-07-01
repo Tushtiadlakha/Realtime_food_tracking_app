@@ -1,0 +1,25 @@
+nav li:last-child a {
+  background: brown;
+}
+
+nav li a {
+  transition: all 0.3s ease-in-out;
+  color: #ff0080;
+}
+nav li a:hover {
+  color: #f69f9f;
+}
+
+.menu h1 {
+  color: #ff0080;
+}
+
+.addToCart {
+  border: 2x solid black;
+  color: #0000ff;
+  background-color: #fa8080;
+}
+.addToCart:hover {
+  background-color: #f69f9f;
+  color: #ffffff;
+}
