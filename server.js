@@ -1,3 +1,4 @@
+require('dotenv').config()
 const express = require('express');
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -5,6 +6,9 @@ const ejs = require('ejs');
 const express_layout = require('express-ejs-layouts');
 const path = require('path');
 const MainRouter = require('./routes/web');
+const mongoose = require('mongoose');
+const connection = require("./backend/db/mongoConnection");
+
 
 
 // app.get("/", (req,res) => {

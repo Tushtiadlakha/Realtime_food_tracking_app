@@ -14,119 +14,22 @@
     <section class="menu container mx-auto py-8">
         <h1 class="text-6xl font-bold my-8">Food Items</h1>
         <div class="grid grid-cols-4 col-gap-12 row-gap-16">
-            <div class="w-64">
-                <img src="/img/burger.jpg" alt="food1">
-                <div class="text-center">
-                    <h2>Name1</h2>
-                    <span>veg</span>
-                    <div class="flex items-center justify-around">
-                        <span>price</span>
-                        <button class="addToCart py-1 px-6 rounded-full flex items-cente text-bold">
-                            <span>+</span>
-                            <span>Add</span>
-                        </button>
+            <% food.forEach(function(foodItem){ %>
+                <div class="w-64">
+                    <img src="/img/<%= foodItem.image %>" alt="<%= foodItem.name %>">
+                    <div class="text-center">
+                        <h2><%= foodItem.name %></h2>
+                        <span><%= foodItem.type %></span>
+                        <div class="flex items-center justify-around">
+                            <span>Rs. <%= foodItem.price %></span>
+                            <button class="addToCart py-1 px-6 rounded-full flex items-cente text-bold">
+                                <span>+</span>
+                                <span>Add</span>
+                            </button>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="w-64">
-                <img src="/img/burger.jpg" alt="food1">
-                <div class="text-center">
-                    <h2>Name2</h2>
-                    <span>veg</span>
-                <div class="flex items-center justify-around">
-                    <span>price</span>
-                    <button class="addToCart py-1 px-6 rounded-full flex items-cente text-bold">
-                        <span>+</span>
-                        <span>Add</span>
-                    </button>
-                </div>
-                </div>
-            </div>
-            <div class="w-64">
-                <img src="/img/burger.jpg" alt="food1">
-                <div class="text-center">
-                    <h2>Name3</h2>
-                    <span>veg</span>
-                <div class="flex items-center justify-around">
-                    <span>price</span>
-                    <button class="addToCart py-1 px-6 rounded-full flex items-cente text-bold">
-                        <span>+</span>
-                        <span>Add</span>
-                    </button>
-                </div>
-                </div>
-            </div>
-            <div class="w-64">
-                <img src="/img/burger.jpg" alt="food1">
-                <div class="text-center">
-                    <h2>Name4</h2>
-                    <span>veg</span>
-                <div class="flex items-center justify-around">
-                    <span>price</span>
-                    <button class="addToCart py-1 px-6 rounded-full flex items-cente text-bold">
-                        <span>+</span>
-                        <span>Add</span>
-                    </button>
-                </div>
-                </div>
-            </div>
-            <div class="w-64">
-                <img src="/img/burger.jpg" alt="food1">
-                <div class="text-center">
-                    <h2>Name4</h2>
-                    <span>veg</span>
-                <div class="flex items-center justify-around">
-                    <span>price</span>
-                    <button class="addToCart py-1 px-6 rounded-full flex items-cente text-bold">
-                        <span>+</span>
-                        <span>Add</span>
-                    </button>
-                </div>
-                </div>
-            </div>
-            <div class="w-64">
-                <img src="/img/burger.jpg" alt="food1">
-                <div class="text-center">
-                    <h2>Name4</h2>
-                    <span>veg</span>
-                <div class="flex items-center justify-around">
-                    <span>price</span>
-                    <button class="addToCart py-1 px-6 rounded-full flex items-cente text-bold">
-                        <span>+</span>
-                        <span>Add</span>
-                    </button>
-                </div>
-                </div>
-            </div>
-            <div class="w-64">
-                <img src="/img/burger.jpg" alt="food1">
-                <div class="text-center">
-                    <h2>Name4</h2>
-                    <span>veg</span>
-                <div class="flex items-center justify-around">
-                    <span>price</span>
-                    <button class="addToCart py-1 px-6 rounded-full flex items-cente text-bold">
-                        <span>+</span>
-                        <span>Add</span>
-                    </button>
-                </div>
-                </div>
-            </div>
-            <div class="w-64">
-                <img src="/img/burger.jpg" alt="food1">
-                <div class="text-center">
-                    <h2>Name4</h2>
-                    <span>veg</span>
-                <div class="flex items-center justify-around">
-                    <span>price</span>
-                    <button class="addToCart py-1 px-6 rounded-full flex items-cente text-bold">
-                        <span>+</span>
-                        <span>Add</span>
-                    </button>
-                </div>
-                </div>
-            </div>
-
+            <% })%>
         </div>
     </section>
 

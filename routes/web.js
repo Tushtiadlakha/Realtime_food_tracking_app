@@ -1,20 +1,15 @@
 const router = require('express').Router();
+const homeController = require('../backend/http/controllers/homeController');
+const authController = require('../backend/http/controllers/authController');
+const cartController = require('../backend/http/controllers/cartController');
 
-router.get("/", (req,res) => {
-    res.render('home');
-});
+router.get("/", homeController().index);
 
-router.get("/cart", (req,res) => {
-    res.render('customers/cart');
-});
+router.get("/cart", cartController().index);
 
-router.get("/login", (req,res) => {
-    res.render('auth/login');
-});
+router.get("/login", authController().login);
 
-router.get("/register", (req,res) => {
-    res.render('auth/register');
-});
+router.get("/register", authController().register);
 
 
 module.exports = router;
