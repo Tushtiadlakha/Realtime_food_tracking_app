@@ -12,17 +12,11 @@ const MainRouter = require('./routes/web');
 // });
 
 app.use(express.static('public'));
-app.use(MainRouter);
-
-
-
 app.use(express_layout);
 app.set('view engine','ejs');
 app.set('views', path.join(__dirname,'/resources/views'));
 
-
-
-
+app.use(MainRouter);
 
 app.listen(PORT, (req,res) => {
     console.log(`Listening to ${PORT}`);
