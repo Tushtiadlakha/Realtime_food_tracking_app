@@ -10,6 +10,7 @@ router.get("/cart", cartController().index);
 router.get("/login", authController().login);
 
 router.get("/register", authController().register);
+router.post("/register", authController().postRegister)
 
 router.post('/update-cart',cartController().update)
 
