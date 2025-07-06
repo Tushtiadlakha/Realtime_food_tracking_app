@@ -11,5 +11,7 @@ router.get("/login", authController().login);
 
 router.get("/register", authController().register);
 
+router.post('/update-cart',cartController().update)
+
 
 module.exports = router;

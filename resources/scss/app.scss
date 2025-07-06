@@ -1,4 +1,6 @@
 @import './variable';
+@import '~noty/src/noty.scss';
+@import '~noty/src/themes/mint.scss';
 
 nav li:last-child a{
     background: brown;
@@ -23,7 +25,15 @@ nav li a{
     &:hover{
         background-color: $primary-hover;
         color: $pure;
+    };
+    &:focus{
+        outline: none;
     }
+}
+
+.noty_theme__mint{
+    border-radius: 50px !important;
+    padding-left: 8px !important;
 }
 
 

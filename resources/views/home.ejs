@@ -22,7 +22,7 @@
                         <span><%= foodItem.type %></span>
                         <div class="flex items-center justify-around">
                             <span>Rs. <%= foodItem.price %></span>
-                            <button class="addToCart py-1 px-6 rounded-full flex items-cente text-bold">
+                            <button value = "<%= JSON.stringify(foodItem)%>" class="addToCart py-1 px-6 rounded-full flex items-cente text-bold">
                                 <span>+</span>
                                 <span>Add</span>
                             </button>
