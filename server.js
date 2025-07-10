@@ -11,6 +11,7 @@ const connection = require("./backend/db/mongoConnection");
 const session = require("express-session");
 const flash = require('express-flash');
 const MongoDbStore = require('connect-mongo');
+const passport = require("passport");
 
 
 app.use(session({
@@ -22,6 +23,12 @@ app.use(session({
         }),
     cookie: {maxAge: 1000*60*60*24}
 }))
+
+//passport config
+const passportInit = require('./backend/config/passport.js');
+passportInit(passport);
+app.use(passport.initialize());
+app.use(passport.session());
 
 app.use(flash());
 
@@ -43,5 +50,6 @@ app.use(MainRouter);
 app.listen(PORT, (req,res) => {
     console.log(`Listening to ${PORT}`);
 })
+
 
 

@@ -1,6 +1,7 @@
 const flash = require('express-flash');
 const User = require('../../models/user');
 const bcrypt = require('bcrypt');
+const passport = require('passport');
 
 function authController()
 {
@@ -8,6 +9,38 @@ function authController()
         login(req,res)
         {
             res.render('auth/login');
+        },
+
+        async postLogin(req, res, next)
+        {
+            const {email, password} =req.body;
+
+            if(!email || !password){
+                
+                req.flash('err', 'All fields are required');
+                req.flash('email',email);
+
+                return res.redirect('/login');
+            }
+            
+            passport.authenticate('local',(err,user,info) => {
+                if(err) {
+                    req.flash('err', info.message )
+                    return next(err)
+                }
+                if(!user) {
+                    req.flash('err', info.message )
+                    return res.redirect('/login')
+                }
+                req.logIn(user, (err) => {
+                    if(err) {
+                        req.flash('err', info.message ) 
+                        return next(err);
+                    }
+
+                    return res.redirect('/')
+                })
+            })(req,res,next)
         },
 
         register(req,res)
@@ -29,8 +62,11 @@ function authController()
             }
 
             //if user exists
-            User.exists({email:email}).then(result => {
-                if(result)
+            
+            try{
+                const existingUser = await User.exists({email:email});
+
+                if(existingUser)
                 {
                     req.flash('err', 'Email already exists');
                     req.flash('name', username);
@@ -39,7 +75,11 @@ function authController()
                     return res.redirect('/register');
 
                 }
-            });
+            }
+            catch(err){
+                console.log(err);
+            }
+            
 
             hashedPassword = await bcrypt.hash(password, 10);
 
@@ -62,6 +102,16 @@ function authController()
 
 
 
+        },
+
+        logout(req,res)
+        {
+            req.logout(function(err) {
+                if (err) { 
+                    return next(err); 
+                }
+                res.redirect('/login');
+            });
         }
     }    
 }
